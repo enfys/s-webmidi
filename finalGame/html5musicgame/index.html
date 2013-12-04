@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Let's Learn Piano</title>
+    <link href="piano.css" rel="StyleSheet" type="text/css" />
+    <script src="lib/jquery-1.8.1.min.js" type="text/javascript"></script>
+    <script src="touchEvents.js" type="text/javascript"></script>
+    <script src="keycodes.js" type="text/javascript"></script>
+    <script src="audioManager.js" type="text/javascript"></script>
+    <script src="audioSequencer.js" type="text/javascript"></script>
+    <script src="musicData.js" type="text/javascript"></script>
+    <script src="splashPanel.js" type="text/javascript"></script>
+    <script src="gamePanel.js" type="text/javascript"></script>
+    <script src="piano.js" type="text/javascript"></script>
+    <script>
+    $(document).ready(functon(){
+   $( "#free-play" ).click(function() {
+$( ".keyboard" ).hide;
+};
+    
+   }</script>
+</head>
+<body>
+    <div id="app">
+        <div id="splash">
+            <h1>Let's Learn Piano</h1>
+            <section class="loading">
+                Loading audio...<br/>
+                <progress max="100" value="0"></progress>
+            </section>
+            <section class="error">There was an error loading the audio. Refresh the page to try again.</section>
+            <section class="options hidden">
+                <label>Choose a song</label>
+                <select id="select-song">
+                    <option value="rowBoat">Row Your Boat</option>
+                    <option value="littleStar">Twinkle, Twinkle, Little Star</option>
+                    <option value="londonBridge">London Bridge</option>
+                    <option value="furElise">Fur Elise</option>
+                </select><br/>
+                <label>Choose difficulty</label>
+                <select id="select-rate">
+                    <option value="0.5">Slow (60bpm)</option>
+                    <option value="1" selected>Normal (120bpm)</option>
+                    <option value="1.5">Fast (180bpm)</option>
+                </select>
+                <p>
+                    <button id="start-game">Start Game</button>
+                    <button id="start-song">Play Song</button>
+                     <button id="free-play">Play Piano</button>
+                </p>
+            </section>
+        </div>
+        <div id="game">
+            <div id="notes-panel">
+                <div class="title">Let's Learn Piano</div>
+            </div>
+            <div id="results-panel">
+                <h1>Score: <span class="score"></span></h1>
+                <p>You got <span class="correct"></span> out of <span class="count"></span> notes correct.</p>
+                <p>
+                    Note accuracy: <span class="note-accuracy"></span>%<br/>
+                    Timing accuracy: <span class="timing-accuracy"></span>%
+                </p>
+            </div>
+            <div class="keyboard">
+                <div class="keys">
+                    <div data-note="2C" data-keycode="Q" class="piano-key white" title="C2"></div>
+                    <div data-note="2C#" data-keycode="NUM2" class="piano-key black" title="C#2"></div>
+                    <div data-note="2D" data-keycode="W" class="piano-key white" title="D2"></div>
+                    <div data-note="2D#" data-keycode="NUM3" class="piano-key black" title="D#2"></div>
+                    <div data-note="2E" data-keycode="E" class="piano-key white" title="E2"></div>
+                    <div data-note="2F" data-keycode="R" class="piano-key white" title="F2"></div>
+                    <div data-note="2F#" data-keycode="NUM5" class="piano-key black" title="F#2"></div>
+                    <div data-note="2G" data-keycode="T" class="piano-key white" title="G2"></div>
+                    <div data-note="2G#" data-keycode="NUM6" class="piano-key black" title="G#2"></div>
+                    <div data-note="2A" data-keycode="Y" class="piano-key white" title="A2"></div>
+                    <div data-note="2A#" data-keycode="NUM7" class="piano-key black" title="A#2"></div>
+                    <div data-note="2B" data-keycode="U" class="piano-key white" title="B2"></div>
+                    <div data-note="3C" data-keycode="Z" class="piano-key white" title="C3"></div>
+                    <div data-note="3C#" data-keycode="S" class="piano-key black" title="C#3"></div>
+                    <div data-note="3D" data-keycode="X" class="piano-key white" title="D3"></div>
+                    <div data-note="3D#" data-keycode="D" class="piano-key black" title="D#3"></div>
+                    <div data-note="3E" data-keycode="C" class="piano-key white" title="E3"></div>
+                    <div data-note="3F" data-keycode="V" class="piano-key white" title="F3"></div>
+                    <div data-note="3F#" data-keycode="G" class="piano-key black" title="F#3"></div>
+                    <div data-note="3G" data-keycode="B" class="piano-key white" title="G3"></div>
+                    <div data-note="3G#" data-keycode="H" class="piano-key black" title="G#3"></div>
+                    <div data-note="3A" data-keycode="N" class="piano-key white" title="A3"></div>
+                    <div data-note="3A#" data-keycode="J" class="piano-key black" title="A#3"></div>
+                    <div data-note="3B" data-keycode="M" class="piano-key white" title="B3"></div>
+                    <div data-note="4C" data-keycode="COMMA" class="piano-key white" title="C4"></div>
+                </div>
+                <div class="fkeyboard">
+                <iframe src="fullkeyboard.html" width="800" height="380"></iframe>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="stop-button">Stop</button>
+                <button id="restart-button">Restart</button>
+                <button id="quit-button">Quit</button>
+           <br/>
+                <label for="volume">Volume: </label>
+                <input type="range" id="volume" min="1" max="100" value="100" step="1" />
+            </div>
+        </div>
+    </div>
+    <!--  -------------------------------------------------->
+    		<div id= "solo-play">
+    		</div>
+	</div>
+</body>
+</html>
